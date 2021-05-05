@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <table border="1">
+        <tr>
+            <th>Auther</th>
+            <th>Title</th>
+            <th>Content</th>
+            <th>tags</th>
+            <th>Like</th>
+            <th>Dislike</th>
+            <th>Comment</th>
+            
+        </tr>
+        <%
+        if(postsData.length!=0){
+        var i=1;
+        postsData.forEach(function(data){
+        %>
+        <tr>
+           
+            <td><%=data.auther_name %></td>
+            <td><%=data.post_title %></td>
+            <td><%=data.post_content %></td>
+            <td><%=data.post_tags %></td>
+            <td><form ><button (click)="saveLike(data)">Like</button></form></td>
+            <td><button >Dislike</button></td>
+            <td><form><input #commment type="text" name="comment" id="comment" >
+                <button> Comment</button>
+            
+            </form></td>
+        </tr>
+        <%  i++; }) %>
+        <% } else{ %>
+            <tr>
+                <td colspan="7">No Data Found</td>
+            </tr>
+        <% } %>
+    </table>
+        
+</body>
+</html>
